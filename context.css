@@ -1,0 +1,283 @@
+.context-button {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 10px;
+  border: 1px solid rgba(96, 165, 250, 0.34);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(29, 78, 216, 0.24), rgba(18, 34, 56, 0.92));
+  color: var(--text);
+  text-align: left;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+
+.context-button:hover {
+  border-color: rgba(96, 165, 250, 0.72);
+  background: linear-gradient(145deg, rgba(37, 99, 235, 0.38), rgba(24, 43, 69, 0.98));
+}
+
+.context-button:active {
+  transform: scale(0.97);
+}
+
+.context-button > svg:first-child {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: #93c5fd;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.context-copy {
+  min-width: 0;
+  display: grid;
+  line-height: 1.05;
+}
+
+.context-copy strong {
+  color: #dbeafe;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.context-copy small {
+  max-width: 150px;
+  margin-top: 4px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.context-button .chevron {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.settings-intro {
+  max-width: 580px;
+  margin: 9px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.active-context {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 22px;
+  padding: 14px 16px;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 17px;
+  background: rgba(30, 64, 175, 0.12);
+}
+
+.active-context-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 13px;
+  background: rgba(37, 99, 235, 0.22);
+  color: #bfdbfe;
+}
+
+.active-context-icon svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.active-context small,
+.active-context strong {
+  display: block;
+}
+
+.active-context small {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.active-context strong {
+  margin-top: 4px;
+  color: #dbeafe;
+  line-height: 1.35;
+}
+
+.jurisdiction-note {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--blue);
+  border-radius: 0 12px 12px 0;
+  background: rgba(37, 99, 235, 0.08);
+  color: #b9c8db;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.welcome-context {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 24px;
+  padding: 13px 15px;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  border-radius: 17px;
+  background: rgba(7, 17, 31, 0.5);
+  color: var(--text);
+  text-align: left;
+}
+
+.welcome-context:hover {
+  border-color: rgba(96, 165, 250, 0.62);
+  background: rgba(19, 47, 80, 0.68);
+}
+
+.welcome-context > svg {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: #93c5fd;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.welcome-context > span:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+
+.welcome-context small,
+.welcome-context strong {
+  display: block;
+}
+
+.welcome-context small {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.welcome-context strong {
+  margin-top: 4px;
+  overflow: hidden;
+  color: #dbeafe;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+}
+
+.welcome-context-action {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.2);
+  color: #bfdbfe;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  .status-pill {
+    display: none;
+  }
+
+  .context-copy small {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand strong {
+    font-size: 0.92rem;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .top-actions {
+    gap: 6px;
+  }
+
+  .context-button {
+    min-height: 42px;
+    gap: 7px;
+    padding: 6px 8px;
+    border-radius: 13px;
+  }
+
+  .context-button > svg:first-child {
+    width: 20px;
+    height: 20px;
+  }
+
+  .context-copy small,
+  .context-button .chevron {
+    display: none;
+  }
+
+  .context-copy strong {
+    font-size: 0.76rem;
+  }
+
+  .settings-card {
+    max-height: calc(100dvh - 84px);
+  }
+
+  .active-context {
+    align-items: flex-start;
+  }
+
+  .welcome-context {
+    align-items: flex-start;
+  }
+
+  .welcome-context-action {
+    display: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand strong {
+    max-width: 92px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .icon-button {
+    width: 39px;
+    height: 39px;
+  }
+}

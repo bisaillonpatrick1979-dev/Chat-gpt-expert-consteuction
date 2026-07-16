@@ -7,11 +7,12 @@
   <meta name="description" content="Assistant IA expert en construction, codes du bâtiment, physique des matériaux et recherche locale." />
   <title>ChatGPT Experts Construction</title>
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/context.css" />
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <button class="brand" id="settingsButton" type="button" aria-label="Ouvrir les réglages">
+      <button class="brand" id="settingsButton" type="button" aria-label="Ouvrir les réglages de langue et d’emplacement">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 48 48" role="img">
             <path d="M8 22 24 8l16 14v18H29V28H19v12H8Z" />
@@ -25,6 +26,18 @@
       </button>
 
       <div class="top-actions">
+        <button class="context-button" id="contextButton" type="button" title="Changer la langue et l’emplacement" aria-label="Changer la langue et l’emplacement">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
+          </svg>
+          <span class="context-copy">
+            <strong id="contextLanguage">FR</strong>
+            <small id="contextLocation">Calgary, AB</small>
+          </span>
+          <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4" /></svg>
+        </button>
+
         <span class="status-pill" id="apiStatus">
           <span class="status-dot"></span>
           <span id="apiStatusText">Vérification…</span>
@@ -39,12 +52,23 @@
       <div class="settings-card">
         <div class="settings-heading">
           <div>
-            <p class="eyebrow">Contexte local</p>
-            <h2>Langue et juridiction</h2>
+            <p class="eyebrow" id="settingsEyebrow">Contexte local</p>
+            <h2 id="settingsTitle">Langue et emplacement</h2>
+            <p class="settings-intro" id="settingsIntro">Ces choix déterminent la langue des réponses, les codes du bâtiment applicables et les fournisseurs recherchés près de vous.</p>
           </div>
           <button class="icon-button" id="closeSettingsButton" type="button" aria-label="Fermer les réglages">
             <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
           </button>
+        </div>
+
+        <div class="active-context" id="activeContext">
+          <span class="active-context-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+          </span>
+          <span>
+            <small id="activeContextLabel">Contexte actuellement utilisé par l’IA</small>
+            <strong id="activeContextValue">Français · Calgary · Alberta · Canada</strong>
+          </span>
         </div>
 
         <div class="settings-grid">
@@ -74,6 +98,8 @@
           </label>
         </div>
 
+        <p class="jurisdiction-note" id="jurisdictionNote">L’IA utilisera automatiquement ce contexte pour vérifier les codes, permis, règles locales, prix et fournisseurs.</p>
+
         <div class="voice-setting">
           <div>
             <strong id="autoVoiceTitle">Réponse vocale automatique</strong>
@@ -85,7 +111,7 @@
           </label>
         </div>
 
-        <button class="primary-button wide" id="saveSettingsButton" type="button">Enregistrer les réglages</button>
+        <button class="primary-button wide" id="saveSettingsButton" type="button">Enregistrer et appliquer</button>
       </div>
     </aside>
 
@@ -99,6 +125,15 @@
         <p id="welcomeText">
           Codes du bâtiment, analyse de photos et plans PDF, physique des matériaux, estimation, solutions comparées et recherche de fournisseurs locaux.
         </p>
+
+        <button class="welcome-context" id="welcomeContextButton" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+          <span>
+            <small id="welcomeContextLabel">Contexte actif</small>
+            <strong id="welcomeContextValue">Français · Calgary · Alberta · Canada</strong>
+          </span>
+          <span class="welcome-context-action" id="welcomeContextAction">Modifier</span>
+        </button>
 
         <div class="capability-grid">
           <button class="prompt-card" type="button" data-prompt="Analyse cette photo de chantier, identifie les problèmes visibles et propose trois solutions avec matériaux et coûts.">
