@@ -1,0 +1,13 @@
+{
+  "name": "chatgpt-experts-construction",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Assistant IA multilingue spécialisé en construction, codes, physique des matériaux et recherche locale.",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "openai": "^6.47.0"
+  }
+}
